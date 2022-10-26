@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="col-md-6">
+    <div class="form-group">        
+        <label for="id_create_at" class="control-label ">录入日期</label>
+        <div class="controls ">
+            <input type="text" value="{{ form.instance.create_at|date:'Y/m/d h:m:s' }}" class="textinput textInput form-control" disabled id="id_create_at">
+        </div>            
+    </div>
+</div>
+
+
+<div class="container mt-3">
+    {% crispy form %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<table class="table table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>房间号码</th>
+            <th>业主姓名</th>
+            <th>联系方式</th>
+            <th>微信名称</th>
+            <th>确认状态</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for obj in all %}
+        <tr>
+            <td><a href="{% url 'fee_detail' obj.internal_id %}">{{ obj.room_id }}</a></td>
+            <td>{{ obj.owner_name }}</td>
+            <td>{{ obj.contact}}</td>
+            <td>{{ obj.wx_name }}</td>
+            <td>{{ obj.approve_status_str }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<ul class="pagination">
+    <!--#上一页-->
+    <!--当有上一页时-->
+    {% if page_obj.has_previous %}
+    <li><a class="page-link" href="{% url 'fee_list' %}?page={{ page_obj.previous_page_number }}">&lt&lt</a></li>
+    {% else %}
+    <li class="disabled"><a class="page-link" href="#">&lt&lt</a></li>
+    {% endif %}
+
+    <!--中间的页码，如果是当前页，添加active属性-->
+
+    {% for page in paginator.page_range %}
+    {% if page == page_obj.number %}
+    <li class="active page-item">
+        <a class="page-link" href="{% url 'fee_list' %}?page={{ page }}">{{ page }}</a>
+    </li>
+    {% else %}
+    <li class="page-item"><a class="page-link" href="{% url 'fee_list' %}?page={{ page }}">{{ page }}</a></li>
+    {% endif %}
+    {% endfor %}
+
+
+    <!--#下一页-->
+    {% if page_obj.has_next %}
+    <li class="page-item"><a class="page-link" href="{% url 'fee_list' %}?page={{ page_obj.next_page_number }}">&gt&gt</a></li>
+    {% else %}
+    <li class="disabled page-item"><a class="page-link" href="#">&gt&gt</a></li>
+    {% endif %}
+</ul>
+{% endblock %}

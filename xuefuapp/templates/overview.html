@@ -1,0 +1,53 @@
+
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<table class="table table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th colspan="4" class="text-center">车辆信息</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>总车辆数</td>
+            <td>{{total_cars}}</td>
+            <td>已发证</td>
+            <td>{{approved_cars}}</td>
+        </tr>
+        <tr>
+            <td>地库固定</td>
+            <td>{{underground_fix_cars}}</td>
+            <td>地库月卡</td>
+            <td>{{unground_month_cars}}</td>
+        </tr>
+        <tr>
+            <td>地面月卡</td>
+            <td>{{ground_month_cars}}</td>
+            <td>地面临时</td>
+            <td>{{ground_temp_cars}}</td>
+        </tr>
+            <td>地库排队</td>
+            <td>{{underground_queue_cars}}</td>
+            <td>地面排队</td>
+            <td>{{ground_queue_cars}}</td>
+    </tr>
+    <tr class="thead-light">
+        <th colspan="4" class="text-center" >物业费待缴信息</th>
+    </tr>
+    <tr>
+        <td>总计金额</td>
+        <td>{{total_fee}}</td>
+        <td>总计户数</td>
+        <td>{{total_room}}</td>
+    </tr>
+    <tr>
+        <td>3月以上户数</td>
+        <td>{{gte_3month}}</td>
+        <td>3月以下户数</td>
+        <td>{{lt_3month}}</td>
+    </tr>
+    </tbody>
+</table>
+{% endblock %}

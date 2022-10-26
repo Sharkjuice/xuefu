@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+
+    <div class="row">
+        <div class="col-md-6"> {{ form.id|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.new_car|as_crispy_field }} </div>
+    </div>
+            
+    <div class="row">
+        <div class="col-md-6"> {{ form.room_id|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.car_id|as_crispy_field }} </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6"> {{ form.applicant_name|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.applicant_id|as_crispy_field }} </div>     
+    </div> 
+
+    <div class="row">
+        <div class="col-md-6"> {{ form.apply_date|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.car_model|as_crispy_field }} </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"> {{ form.contact|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.total_cars|as_crispy_field }} </div>   
+    </div>
+    <div class="row">  
+        <div class="col-md-6"> {{ form.card_type|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.approve_id|as_crispy_field }} </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"> {{ form.approve_status|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.process_info|as_crispy_field }} </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6"> {{ form.underground_fix_no|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.car_of|as_crispy_field }} </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"> {{ form.notes|as_crispy_field }} </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6"> {{ form.doc_hukouben_1|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.doc_hukouben_2|as_crispy_field }} </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"> {{ form.doc_shenfenzheng_1|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.doc_shenfenzheng_2|as_crispy_field }} </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6"> {{ form.doc_xingshizheng|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.doc_jiehunzheng|as_crispy_field }} </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"> {{ form.doc_lihunzheng|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.doc_changzuxieyi_1|as_crispy_field }} </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"> {{ form.doc_changzuxieyi_2|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.doc_changzuxieyi_3|as_crispy_field }} </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6"> {{ form.doc_changzuxieyi_4|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.doc_changzuxieyi_5|as_crispy_field }} </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6"> {{ form.doc_gongzhengshu_1|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.doc_gongzhengshu_2|as_crispy_field }} </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"> {{ form.doc_zulinhetong|as_crispy_field }} </div>
+        <div class="col-md-6"> {{ form.doc_chengnuoshu|as_crispy_field }} </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">        
+                <label for="id_create_at" class="control-label ">创建日期</label>
+                <div class="controls ">
+                    <input type="text" value="{{ form.instance.create_at|date:'Y/m/d h:m:s' }}" class="textinput textInput form-control" disabled id="id_create_at">
+                </div>            
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">        
+                <label for="id_change_at" class="control-label ">最近修改日期</label>
+                <div class="controls ">
+                    <input type="text" value="{{ form.instance.change_at|date:'Y/m/d h:m:s' }}" class="textinput textInput form-control" disabled id="id_change_at">
+                </div>            
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">返回列表</button> 
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学府花园</title>
+    <link href="/third_party/bootstrap.css" rel="stylesheet" />
+    <script src="/third_party/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div>
+            <a class="navbar-brand" href="#">学府花园物业</a>
+        </div>
+        <div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'overview' %}">总览</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'ground_list' %}">地面排队车辆</a></li>
+			    <li class="nav-item"><a class="nav-link" href="{% url 'underground_list' %}">地库排队车辆_1</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'underground_list_2' %}">地库排队车辆_2</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'car_query' %}">查询车辆</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'fee_list' %}">查询欠费</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">管理后台</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        {% block content %}
+            我是父摸版中的代码
+        {% endblock %}
+    </div>
+    </div>
+</body>
+<script type="text/javascript">
+    window.onload=function(){
+        $(".navbar-nav").find("li").each(function () {
+        var a = $(this).find("a:first")[0];
+        if ($(a).attr("href") === location.pathname) {
+            $(this).addClass("active");
+        } else {
+            $(this).removeClass("active");
+        }
+    });
+    }
+</script>
+</html>
